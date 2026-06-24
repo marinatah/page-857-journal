@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 杂志专题 · 信息索引</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f6f3ed;
+      font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", Georgia, serif;
+      color: #2c2b26;
+      line-height: 1.75;
+      padding: 2.4rem 1.2rem;
+    }
+
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #fefcf7;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+      border-radius: 20px;
+      padding: 2.8rem 2.2rem 3.2rem;
+    }
+
+    /* hero 简洁横幅 */
+    .hero {
+      padding: 2.2rem 0 1.2rem 0;
+      border-bottom: 1px solid #e2dbcf;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #3b352d;
+      margin-bottom: 0.2rem;
+      line-height: 1.2;
+    }
+
+    .hero .sub {
+      font-size: 0.95rem;
+      color: #7a7265;
+      letter-spacing: 0.5px;
+      font-style: italic;
+      margin-top: 0.2rem;
+    }
+
+    /* 背景说明 */
+    .bg-note {
+      background: #f2ede4;
+      padding: 1.4rem 1.6rem;
+      border-radius: 12px;
+      margin: 1.8rem 0 2.2rem;
+      font-size: 1rem;
+      border-left: 6px solid #b8aa96;
+    }
+
+    .bg-note strong {
+      font-weight: 600;
+      color: #3e352a;
+    }
+
+    /* 文章排版的段落 */
+    .article p {
+      margin-bottom: 1.6rem;
+      text-indent: 2em;
+    }
+
+    .article p:first-of-type {
+      margin-top: 0;
+    }
+
+    /* 引用块 / 提示框 */
+    .quote-box {
+      background: #faf8f2;
+      border: 1px solid #ddd5c7;
+      border-radius: 12px;
+      padding: 1.2rem 1.6rem;
+      margin: 2rem 0;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .quote-box p {
+      text-indent: 0;
+      margin-bottom: 0.2rem;
+      font-size: 1rem;
+      color: #3f3a31;
+    }
+
+    .quote-box .label {
+      display: inline-block;
+      background: #d9cebd;
+      padding: 0.1rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      letter-spacing: 0.6px;
+      color: #3b342a;
+      margin-bottom: 0.6rem;
+    }
+
+    /* 卡片风格 特点摘录 */
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin: 2rem 0 1.8rem;
+    }
+
+    .feature-card {
+      flex: 1 1 200px;
+      background: #f8f3eb;
+      padding: 1.1rem 1.2rem;
+      border-radius: 14px;
+      border: 1px solid #e4dbce;
+      transition: background 0.15s;
+    }
+
+    .feature-card:hover {
+      background: #efe7db;
+    }
+
+    .feature-card h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #4c4236;
+      margin-bottom: 0.4rem;
+      border-left: 3px solid #b6a48d;
+      padding-left: 0.6rem;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #5c5447;
+      text-indent: 0;
+      margin: 0;
+    }
+
+    /* FAQ 摘要 */
+    .faq-mini {
+      margin: 2.2rem 0 1.8rem;
+    }
+
+    .faq-mini dt {
+      font-weight: 500;
+      margin-top: 1rem;
+      padding: 0.4rem 0 0.2rem 0;
+      border-bottom: 1px dashed #d6cebe;
+      color: #3f382d;
+    }
+
+    .faq-mini dt:first-of-type {
+      margin-top: 0;
+    }
+
+    .faq-mini dd {
+      margin-left: 1.2rem;
+      color: #5d5547;
+      font-size: 0.95rem;
+      padding: 0.4rem 0 0.2rem;
+    }
+
+    /* 页尾 访问提示 */
+    .footer-note {
+      border-top: 1px solid #e4ddd0;
+      margin-top: 2.4rem;
+      padding-top: 1.8rem;
+      text-align: center;
+      font-size: 1rem;
+      color: #4b4438;
+    }
+
+    .footer-note a {
+      color: #5a4f3d;
+      text-decoration: underline wavy #bcab93 1px;
+      text-underline-offset: 6px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .footer-note a:hover {
+      color: #2f281e;
+      text-decoration-color: #8c7b66;
+    }
+
+    .footer-note .small-meta {
+      display: block;
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+      color: #948b7c;
+      letter-spacing: 0.4px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 540px) {
+      body {
+        padding: 1rem 0.6rem;
+      }
+      .page {
+        padding: 1.6rem 1rem 2.2rem;
+        border-radius: 12px;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .feature-grid {
+        flex-direction: column;
+      }
+      .feature-card {
+        flex: 1 1 auto;
+      }
+      .bg-note {
+        padding: 1rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- hero 横幅 -->
+  <div class="hero">
+    <h1>爱游戏 · 游戏资料索引</h1>
+    <div class="sub">整理 · 归档 · 轻阅读</div>
+  </div>
+
+  <!-- 背景说明 -->
+  <div class="bg-note">
+    <strong>📋 关于这个索引</strong><br>
+    我们并不生产游戏，也不提供下载。这个页面是一个以 <a href="https://appnews-igame.com" style="text-decoration:underline; color:#3e352a; font-weight:500;">爱游戏</a> 为中心的信息归档站——把散落在各处的游戏资讯、版本记录、更新说明、社群讨论整理成更易于翻阅的形态。适合想快速了解某款游戏来龙去脉的玩家，以及习惯先看资料再决定是否尝试的朋友。
+  </div>
+
+  <!-- 三段自然介绍（文章排版） -->
+  <div class="article">
+
+    <p>去年秋天开始，我注意到身边几个朋友频繁提起某个手游的版本变迁，但每次聊到具体改动又都说不清楚。后来发现网上虽然有不少帖子，但多数是零散的个人感想，缺少一个能把时间线、功能变化、常见疑问拢到一起的地方。于是花了一些碎片时间，把和 <a href="https://appnews-igame.com" style="color:#3e352a; text-decoration:underline;">爱游戏</a> 相关的公开资料按主题做了分类和摘要。谈不上多深入，至少翻找起来省力一点。</p>
+
+    <p>做法其实挺朴素的：看到官方公告就摘几条重点，逛论坛时把高频问题汇总一下，偶尔也把版本更新前后的玩家反馈放在一起对照。没有复杂的算法，就是手动的卡片式整理——比如某次活动改了掉落概率，我就把调整前后的数值、官方说明、玩家实测截图的关键信息列在同一张卡片里。这种笨办法反而让信息更干净，不会被推荐机制带偏。</p>
+
+    <p>目前整理的范围集中在近两年的内容，包括玩法改版、活动日历、角色平衡调整以及部分隐藏成就的触发条件。每一条都标注了原始出处或者参考帖子，方便进一步深挖。如果你也有想补充的条目，或者发现哪条记录有偏差，欢迎在对应的页面底部留言——毕竟索引这东西，越多人参与就越完整。</p>
+  </div>
+
+  <!-- 引用块 / 提示框 -->
+  <div class="quote-box">
+    <span class="label">📌 常见误区</span>
+    <p>有些老玩家习惯用“旧版攻略”来理解当前机制，但实际上 2024 年第三季度的更新里，<a href="https://appnews-igame.com" style="color:#3e352a;">爱游戏</a> 调整了核心的战斗数值公式——暴击与穿透的收益曲线不再是线性。用之前的思路配装，很可能打不出预期效果。所以翻资料时最好先看一眼版本号。</p>
+  </div>
+
+  <!-- 特点 / 场景卡片（杂志风格） -->
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h3>时间线检索</h3>
+      <p>按月份和版本号排列的更新日志，方便回溯某项改动是在哪个补丁加入的。</p>
+    </div>
+    <div class="feature-card">
+      <h3>FAQ 聚合</h3>
+      <p>从官方客服回复、社群置顶帖里提取的重复率最高的问题，附有简要答案或跳转链接。</p>
+    </div>
+    <div class="feature-card">
+      <h3>配置参考</h3>
+      <p>基于公开的推荐数据，整理了几套不同阶段的资源分配思路，不保证最优，但足够起步。</p>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-mini">
+    <dl>
+      <dt>问：这个索引包含所有游戏吗？</dt>
+      <dd>不，目前只聚焦在 <a href="https://appnews-igame.com" style="color:#3e352a; text-decoration:underline;">爱游戏</a> 旗下的几款主要产品及其衍生内容，其他游戏暂时没有收录计划。</dd>
+
+      <dt>问：资料会定期更新吗？</dt>
+      <dd>尽量跟随版本节奏更新，但手动整理有延迟，大型版本通常会在上线后 3–7 天内完成归档。</dd>
+
+      <dt>问：我能直接复制这些资料到自己的笔记里吗？</dt>
+      <dd>当然可以，这些内容本身就是公开信息的二次整理，注明出处即可。如果想引用特定的卡片摘要，保留原文链接就更好了。</dd>
+    </dl>
+  </div>
+
+  <!-- 页尾 访问提示 -->
+  <div class="footer-note">
+    <p>若需要查阅完整的游戏资料、版本记录或玩家讨论摘要，可以前往 <a href="https://appnews-igame.com">爱游戏</a> 的专题索引页，那里的分类目录更细，也保留了更多上下文。</p>
+    <span class="small-meta">资料整理 · 开放索引 · 持续修订</span>
+  </div>
+
+</div>
+</body>
+</html>
