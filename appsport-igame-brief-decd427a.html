@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 站点介绍与说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #faf9f8;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            line-height: 1.65;
+            color: #1e1e1e;
+            padding: 2rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 700px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02), 0 0 0 1px rgba(0, 0, 0, 0.01);
+        }
+
+        @media (max-width: 520px) {
+            body {
+                padding: 1rem 0.75rem;
+            }
+            .page {
+                padding: 1.75rem 1.25rem;
+                border-radius: 16px;
+            }
+        }
+
+        /* 标题体系 */
+        .site-badge {
+            display: inline-block;
+            background: #eae7e2;
+            font-size: 0.75rem;
+            letter-spacing: 0.3px;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            color: #3f3d3a;
+            margin-bottom: 1.8rem;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 580;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+            margin-bottom: 0.5rem;
+            color: #121212;
+        }
+
+        .subhead {
+            font-size: 1rem;
+            color: #5f5d59;
+            margin-bottom: 2rem;
+            border-left: 3px solid #cdc9c2;
+            padding-left: 1rem;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 540;
+            margin-top: 2.5rem;
+            margin-bottom: 0.85rem;
+            letter-spacing: -0.01em;
+            border-bottom: 1px solid #efedea;
+            padding-bottom: 0.35rem;
+            color: #1f1f1f;
+        }
+
+        h3 {
+            font-size: 1rem;
+            font-weight: 540;
+            margin-top: 1.8rem;
+            margin-bottom: 0.6rem;
+            color: #2c2b29;
+        }
+
+        p {
+            margin-bottom: 1.15rem;
+            font-size: 0.98rem;
+        }
+
+        a {
+            color: #1f509e;
+            text-decoration: none;
+            border-bottom: 1px solid #d2dbea;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            border-bottom-color: #1f509e;
+            color: #0b2f66;
+        }
+
+        /* 卡片式说明区 */
+        .info-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .card-item {
+            background: #f7f5f2;
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            border-left: 4px solid #b7b2aa;
+            transition: background 0.15s;
+        }
+
+        .card-item strong {
+            display: block;
+            font-weight: 540;
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+            color: #252423;
+        }
+
+        .card-item p {
+            margin-bottom: 0;
+            font-size: 0.92rem;
+            color: #40403d;
+        }
+
+        /* 提示块 */
+        .tip-box {
+            background: #f1efe9;
+            border-radius: 14px;
+            padding: 1.25rem 1.5rem;
+            margin: 2rem 0 1.8rem;
+            border: 1px solid #e3dfd8;
+        }
+
+        .tip-box .label {
+            font-weight: 520;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #6f6b63;
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+
+        .tip-box p {
+            margin-bottom: 0.25rem;
+            font-size: 0.95rem;
+        }
+
+        .faq-mini {
+            margin-top: 2.2rem;
+            padding-top: 0.2rem;
+            border-top: 1px solid #eae7e2;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-item .q {
+            font-weight: 520;
+            font-size: 0.95rem;
+            margin-bottom: 0.2rem;
+            color: #262522;
+        }
+
+        .faq-item .a {
+            font-size: 0.9rem;
+            color: #4d4b47;
+            padding-left: 0.2rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e7e4df;
+            margin: 1.8rem 0 1.2rem;
+        }
+
+        .footer-note {
+            font-size: 0.8rem;
+            color: #7e7a72;
+            margin-top: 2.2rem;
+            text-align: left;
+            border-top: 1px solid #efedea;
+            padding-top: 1.2rem;
+        }
+
+        /* 辅助小列表 */
+        .meta-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .meta-list li {
+            font-size: 0.9rem;
+            padding: 0.25rem 0;
+            display: flex;
+            gap: 0.5rem;
+            color: #3b3a37;
+        }
+
+        .meta-list li::before {
+            content: "·";
+            color: #94908a;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <div class="site-badge">📋 站点说明 · 信息页</div>
+
+    <h1>关于「爱游戏」</h1>
+    <div class="subhead">一份整理自站点的介绍与可信说明</div>
+
+    <p>
+        <a href="https://appsport-igame.com">爱游戏</a> 是一个提供游戏相关服务的线上站点。
+        本页面围绕该站点的定位、内容范围及常见问题做了简要梳理，方便初次接触的用户快速了解其核心面貌。
+        以下信息均基于站点公开内容整理，不作延伸推测。
+    </p>
+
+    <!-- 说明区：卡片目录感 -->
+    <h2>📂 站点信息速览</h2>
+    <div class="info-cards">
+        <div class="card-item">
+            <strong>站点类型</strong>
+            <p>游戏应用推荐与信息展示类网站，主要涉及移动端及跨平台游戏内容索引。</p>
+        </div>
+        <div class="card-item">
+            <strong>内容侧重</strong>
+            <p>围绕热门游戏、实用工具及休闲产品进行客观陈列，不包含下载文件或客户端分发。</p>
+        </div>
+        <div class="card-item">
+            <strong>语言与受众</strong>
+            <p>以中文用户为主要服务对象，界面及描述均为简体中文，兼顾一般游戏爱好者。</p>
+        </div>
+    </div>
+
+    <!-- 提示区 -->
+    <div class="tip-box">
+        <span class="label">📌 提示</span>
+        <p>本页仅为<strong>信息汇总与介绍</strong>，不代替原站功能。如需使用具体服务或查阅最新内容，请直接访问 <a href="https://appsport-igame.com">爱游戏</a> 本身。</p>
+        <p style="margin-top:0.3rem;">页面内容定期复核，但建议以原站实时展示为准。</p>
+    </div>
+
+    <!-- 相关信息区 -->
+    <h2>📎 相关信息</h2>
+
+    <h3>访问与适用场景</h3>
+    <p>
+        用户可通过浏览器直接打开 <a href="https://appsport-igame.com">爱游戏</a> 浏览内容。
+        适合在寻找游戏推荐、查看应用简介或了解某款产品基本特点时参考。
+        站点页面结构清晰，分类明确，便于快速定位感兴趣的方向。
+    </p>
+
+    <h3>内容可信说明</h3>
+    <p>
+        本站所引述的信息均来自公开可访问的页面，无主观篡改或夸大。
+        每个推荐条目均标注了基本属性与来源说明，用户可自行交叉验证。
+        若发现内容与实际情况存在出入，建议以原站正式发布版本为准。
+    </p>
+
+    <!-- 场景示意 (简) -->
+    <h3>常见使用场景</h3>
+    <ul class="meta-list">
+        <li>查找近期关注度较高的游戏及其基本介绍</li>
+        <li>了解某款应用的功能概述与支持平台</li>
+        <li>快速对比多款同类产品的特点与描述</li>
+        <li>获取站点导航及分类入口信息</li>
+    </ul>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h2 style="border-bottom:0; margin-top:0;">❓ 常见问题 (摘要)</h2>
+
+        <div class="faq-item">
+            <div class="q">爱游戏 需要注册或登录吗？</div>
+            <div class="a">浏览站内信息通常无需注册，具体功能以实际页面提示为准。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">站内提供的游戏可以直接下载吗？</div>
+            <div class="a">本站为信息展示型页面，不直接提供下载文件，相关链接或指引参见具体条目。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">如何获取最新更新？</div>
+            <div class="a">建议定期访问 <a href="https://appsport-igame.com">爱游戏</a> 首页或关注站点公告区域。</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <p style="font-size:0.9rem; color:#3d3b37;">
+        以上内容由本说明页整理自公开站点，仅用作知识库式索引。
+        原站名称、内容及所有权利归属各自版权方。
+        任何疑问请以原站发布信息为准。
+    </p>
+
+    <div class="footer-note">
+        本介绍页 · 更新于最近复核 &nbsp;|&nbsp; 仅供信息参考
+    </div>
+
+</div>
+</body>
+</html>
